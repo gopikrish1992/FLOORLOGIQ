@@ -1,12 +1,12 @@
-import Landing from "./components/Landing";
-import Modal from "./UI/modal";
+import LandingPage from "./pages/LandingPage";
+import Modal from "./components/modal";
 import './App.css';
 
 // ── APP ───────────────────────────────────────────────────────────────────────
 export default function App() {
   return (
     <>
-    <Landing />
+    <LandingPage />
     <Modal />
     </>
   );

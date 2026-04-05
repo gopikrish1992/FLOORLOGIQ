@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 import industriesData from '../data/industries.json';
 
-import Modal from '../UI/modal';
+import Modal from '../components/modal';
 
 
 
@@ -730,7 +730,7 @@ function Footer() {
   );
 }
 
-export default function Landing(){
+export default function LandingPage(){
     return (
     <>
       <Nav />
