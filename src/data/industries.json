@@ -1,0 +1,110 @@
+[
+  {
+    "n": "01",
+    "icon": "🏭",
+    "title": "Manufacturing",
+    "desc": "Smart factory automation",
+    "tagline": "Cut production downtime by up to 35%.",
+    "detail": "FloorLogiQ's MES and WMS solutions give manufacturers real-time visibility into every work order, machine status, and inventory movement. Teams spend less time chasing data and more time hitting output targets.",
+    "metrics": [
+      { "v": "35%", "l": "Less downtime" },
+      { "v": "2×", "l": "Faster go-live" },
+      { "v": "99%", "l": "Data accuracy" }
+    ],
+    "benefits": [
+      "ISA-95 aligned MES built on Fuuz",
+      "Live OEE dashboards & downtime capture",
+      "Seamless NetSuite ERP sync"
+    ]
+  },
+  {
+    "n": "02",
+    "icon": "🚚",
+    "title": "Logistics & Distribution",
+    "desc": "End-to-end visibility",
+    "tagline": "Full shipment visibility, zero guesswork.",
+    "detail": "From inbound receipts to carrier dispatch, FloorLogiQ connects your logistics workflows into a single source of truth. SCAC-based routing, load management, and EDI integration reduce fulfilment errors and improve on-time delivery.",
+    "metrics": [
+      { "v": "40%", "l": "Fewer errors" },
+      { "v": "1 day", "l": "Avg. go-live prep" },
+      { "v": "100%", "l": "Shipment traceability" }
+    ],
+    "benefits": [
+      "SCAC-based carrier routing logic",
+      "Load-based packing workflow",
+      "EDI & REST API integration"
+    ]
+  },
+  {
+    "n": "03",
+    "icon": "📦",
+    "title": "Warehouse Operations",
+    "desc": "Intelligent inventory",
+    "tagline": "Inventory accuracy that ops teams actually trust.",
+    "detail": "Our Fuuz-native WMS gives warehouse teams licence plate tracking, wave management, and scan-to-pack workflows — all synced live to NetSuite. Reduce cycle count time and eliminate costly stock discrepancies.",
+    "metrics": [
+      { "v": "99.8%", "l": "Inventory accuracy" },
+      { "v": "50%", "l": "Cycle count time" },
+      { "v": "3 wks", "l": "Typical go-live" }
+    ],
+    "benefits": [
+      "Licence plate & LPN tracking",
+      "Wave & batch picking",
+      "Real-time NetSuite inventory sync"
+    ]
+  },
+  {
+    "n": "04",
+    "icon": "🚗",
+    "title": "Automotive",
+    "desc": "Production excellence",
+    "tagline": "Zero-defect production, sequenced and on time.",
+    "detail": "Automotive lines demand precision — the wrong part at the wrong time costs thousands per minute. FloorLogiQ's MES keeps work orders, quality inspections, and operator screens in lockstep so your line never stops for the wrong reason.",
+    "metrics": [
+      { "v": "<1%", "l": "Defect escape rate" },
+      { "v": "60%", "l": "Faster quality sign-off" },
+      { "v": "ISO", "l": "22400 compliant" }
+    ],
+    "benefits": [
+      "Work order sequencing & scheduling",
+      "Operator screens for line-side use",
+      "Inline quality inspection flows"
+    ]
+  },
+  {
+    "n": "05",
+    "icon": "🔩",
+    "title": "Industrial Equipment",
+    "desc": "Asset optimisation",
+    "tagline": "Maximise uptime. Minimise reactive maintenance.",
+    "detail": "Industrial equipment manufacturers need to track builds, components, and service history with precision. FloorLogiQ ties production data to asset records so your team can predict failures before they happen and keep builds on schedule.",
+    "metrics": [
+      { "v": "30%", "l": "Maintenance cost savings" },
+      { "v": "2×", "l": "Build throughput" },
+      { "v": "Full", "l": "Asset traceability" }
+    ],
+    "benefits": [
+      "Component & serial number tracking",
+      "Maintenance schedule integration",
+      "Build-to-order MES workflows"
+    ]
+  },
+  {
+    "n": "06",
+    "icon": "🛒",
+    "title": "Retail Distribution",
+    "desc": "Omnichannel fulfilment",
+    "tagline": "Ship faster. Return less. Satisfy more.",
+    "detail": "High SKU volumes and multi-channel orders demand a WMS that never falls behind. FloorLogiQ's platform handles omnichannel fulfilment, returns processing, and real-time inventory allocation — so your DC keeps up with demand spikes without breaking a sweat.",
+    "metrics": [
+      { "v": "25%", "l": "Faster order fulfilment" },
+      { "v": "80%", "l": "Returns processed same day" },
+      { "v": "Multi", "l": "Channel ready" }
+    ],
+    "benefits": [
+      "Omnichannel order & returns management",
+      "Real-time SKU inventory allocation",
+      "Scan-to-pack with shipping label print"
+    ]
+  }
+]
