@@ -1,4 +1,5 @@
 import LandingPage from "./pages/LandingPage";
+import ComingSoon from "./pages/ComingSoon";
 import Modal from "./components/modal";
 import './App.css';
 
@@ -6,7 +7,8 @@ import './App.css';
 export default function App() {
   return (
     <>
-    <LandingPage />
+    <ComingSoon />
+    {/* <LandingPage /> */}
     <Modal />
     </>
   );
