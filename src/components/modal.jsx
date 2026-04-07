@@ -343,26 +343,28 @@ const IND_CSS = `.ind-overlay {
 }`;
 
 // ─── Modal Component ──────────────────────────────────────────────────────────
-export default function Modal({ ind, onClose }) {
+export default function Modal({ ind, ai, onClose }) {
   const overlayRef = useRef(null);
+  const data = ind || ai;
+  const isAI = !!ai;
 
   // Escape key
   useEffect(() => {
-    if (!ind) return;
+    if (!data) return;
     const h = (e) => {
       if (e.key === "Escape") onClose();
     };
     document.addEventListener("keydown", h);
     return () => document.removeEventListener("keydown", h);
-  }, [ind, onClose]);
+  }, [data, onClose]);
 
   // Lock body scroll
   useEffect(() => {
-    document.body.style.overflow = ind ? "hidden" : "";
+    document.body.style.overflow = data ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [ind]);
+  }, [data]);
 
   // Inject CSS once
   useEffect(() => {
@@ -377,18 +379,18 @@ export default function Modal({ ind, onClose }) {
   return (
     <div
       ref={overlayRef}
-      className={ind ? "ind-overlay open" : "ind-overlay"}
+      className={data ? "ind-overlay open" : "ind-overlay"}
       onClick={(e) => {
         if (e.target === overlayRef.current) onClose();
       }}
     >
-      {ind && (
+      {data && (
         <div className="ind-modal" role="dialog" aria-modal="true">
           <div className="ind-modal-top">
-            <div className="ind-modal-ico-wrap">{ind.icon}</div>
+            <div className="ind-modal-ico-wrap">{data.icon}</div>
             <div className="ind-modal-meta" style={{ marginLeft: "1rem" }}>
-              <div className="ind-modal-eyebrow">Industries We Serve</div>
-              <div className="ind-modal-title">{ind.title}</div>
+              <div className="ind-modal-eyebrow">{isAI ? "AI-Augmented" : "Industries We Serve"}</div>
+              <div className="ind-modal-title">{data.title}</div>
             </div>
             <button
               className="ind-modal-close"
@@ -399,39 +401,61 @@ export default function Modal({ ind, onClose }) {
             </button>
           </div>
           <div className="ind-modal-body">
-            <div className="ind-modal-tagline">
-              {ind.tagline.replace(/\.$/, "")}.<span className="ac"> </span>
-            </div>
-            <p className="ind-modal-desc">{ind.detail}</p>
-            <div className="ind-modal-metrics">
-              {ind.metrics.map(({ v, l }) => (
-                <div key={l} className="ind-metric">
-                  <div className="ind-metric-v">{v}</div>
-                  <div className="ind-metric-l">{l}</div>
+            {isAI ? (
+              <>
+                <p className="ind-modal-desc">{data.desc}</p>
+                <div className="ind-modal-cta">
+                  <button className="ind-modal-btn-ghost" onClick={onClose}>
+                    Close
+                  </button>
+                  <button
+                    className="ind-modal-btn-primary"
+                    onClick={() => {
+                      document.getElementById("contact")?.scrollIntoView({ behavior:"smooth" });
+                      onClose();
+                    }}
+                  >
+                    Learn more →
+                  </button>
                 </div>
-              ))}
-            </div>
-            <div className="ind-modal-benefits">
-              {ind.benefits.map((b) => (
-                <div key={b} className="ind-benefit">
-                  {b}
+              </>
+            ) : (
+              <>
+                <div className="ind-modal-tagline">
+                  {data.tagline.replace(/\.$/, "")}.<span className="ac"> </span>
                 </div>
-              ))}
-            </div>
-            <div className="ind-modal-cta">
-              <button className="ind-modal-btn-ghost" onClick={onClose}>
-                Close
-              </button>
-              <button
-                className="ind-modal-btn-primary"
-                onClick={() => {
-                  document.getElementById("contact")?.scrollIntoView({ behavior:"smooth" });
-                  onClose();
-                }}
-              >
-                Talk to us about {ind.title} →
-              </button>
-            </div>
+                <p className="ind-modal-desc">{data.detail}</p>
+                <div className="ind-modal-metrics">
+                  {data.metrics.map(({ v, l }) => (
+                    <div key={l} className="ind-metric">
+                      <div className="ind-metric-v">{v}</div>
+                      <div className="ind-metric-l">{l}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="ind-modal-benefits">
+                  {data.benefits.map((b) => (
+                    <div key={b} className="ind-benefit">
+                      {b}
+                    </div>
+                  ))}
+                </div>
+                <div className="ind-modal-cta">
+                  <button className="ind-modal-btn-ghost" onClick={onClose}>
+                    Close
+                  </button>
+                  <button
+                    className="ind-modal-btn-primary"
+                    onClick={() => {
+                      document.getElementById("contact")?.scrollIntoView({ behavior:"smooth" });
+                      onClose();
+                    }}
+                  >
+                    Talk to us about {data.title} →
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
       )}

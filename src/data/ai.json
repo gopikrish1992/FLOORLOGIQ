@@ -1,0 +1,22 @@
+[
+  {
+    "icon": "🤖",
+    "title": "JSONata & Flow Development",
+    "desc": "We use AI to generate, review, and validate JSONata expressions and multi-step flow logic. What used to take a day now takes an hour — and ships with fewer runtime errors."
+  },
+  {
+    "icon": "🧪",
+    "title": "QA Test Coverage",
+    "desc": "Instead of writing test scripts by hand, we auto-generate test cases from your flow specs, detect edge cases, and run full regression sweeps across every screen binding."
+  },
+  {
+    "icon": "📋",
+    "title": "Documentation & Handoff",
+    "desc": "Every delivery ships with AI-generated architecture diagrams, data dictionaries, flow docs, and operator guides — so your team owns the system long after go-live."
+  },
+  {
+    "icon": "🔍",
+    "title": "Deployment Risk Analysis",
+    "desc": "Before every deployment we diff-analyse your package for breaking changes, logic regressions, and integration risks — the kind of review that takes humans days, done in minutes."
+  }
+]

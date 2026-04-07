@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
 import industriesData from '../data/industries.json';
+import aiData from '../data/ai.json';
 
 import Modal from '../components/modal';
 
@@ -76,17 +77,6 @@ const SOLUTIONS = [
     img:"https://picsum.photos/id/3/800/400",
     desc:"Platform-native QA by engineers who build on Fuuz daily — data flow validation, expression testing, screen binding checks, and AI-assisted regression before every go-live.",
     feats:["Flow regression","Expression testing","Screen binding QA","Go-live sign-off"] },
-];
-
-const AI_CARDS = [
-  { icon:"🤖", title:"JSONata & Flow Development",
-    desc:"We use AI to generate, review, and validate JSONata expressions and multi-step flow logic. What used to take a day now takes an hour — and ships with fewer runtime errors." },
-  { icon:"🧪", title:"QA Test Coverage",
-    desc:"Instead of writing test scripts by hand, we auto-generate test cases from your flow specs, detect edge cases, and run full regression sweeps across every screen binding." },
-  { icon:"📋", title:"Documentation & Handoff",
-    desc:"Every delivery ships with AI-generated architecture diagrams, data dictionaries, flow docs, and operator guides — so your team owns the system long after go-live." },
-  { icon:"🔍", title:"Deployment Risk Analysis",
-    desc:"Before every deployment we diff-analyse your package for breaking changes, logic regressions, and integration risks — the kind of review that takes humans days, done in minutes." },
 ];
 
 const WHY = [
@@ -339,54 +329,58 @@ function About() {
 // ── AI SECTION ────────────────────────────────────────────────────────────────
 function AISection() {
   const r1 = useFadeUp(), r2 = useFadeUp("d2");
+  const [active, setActive] = useState(null);
   return (
-    <section id="ai" className="sec sec-alt">
-      <div className="wrap">
-        <div className="ai-grid">
-          <div ref={r1}>
-            <div className="stag">AI-Augmented Delivery</div>
-            <h2 className="sh">We use AI at <span className="ac">every stage</span> of delivery.</h2>
-            <p className="ss">
-              Not as a claim — as a daily practice. We use AI across expression development,
-              QA coverage, architecture review, and documentation. Here is exactly how.
-            </p>
-            <div className="ai-cards">
-              {AI_CARDS.map(({icon,title,desc}) => (
-                <div key={title} className="ai-card">
-                  <div className="ai-icon">{icon}</div>
-                  <div>
-                    <div className="ai-ct">{title}</div>
-                    <div className="ai-cd">{desc}</div>
+    <>
+      <section id="ai" className="sec sec-alt">
+        <div className="wrap">
+          <div className="ai-grid">
+            <div ref={r1}>
+              <div className="stag">AI-Augmented Delivery</div>
+              <h2 className="sh">We use AI at <span className="ac">every stage</span> of delivery.</h2>
+              <p className="ss">
+                Not as a claim — as a daily practice. We use AI across expression development,
+                QA coverage, architecture review, and documentation. Here is exactly how.
+              </p>
+              <div className="ai-cards">
+                {aiData.map(({icon,title,desc}) => (
+                  <div key={title} className="ai-card" onClick={() => setActive({icon,title,desc})} style={{cursor:"pointer"}}>
+                    <div className="ai-icon">{icon}</div>
+                    <div>
+                      <div className="ai-ct">{title}</div>
+                      <div className="ai-cd">{desc}</div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-          <div ref={r2} className="ai-panel">
-            <div className="ai-pl">AI impact</div>
-            <div className="ai-big">3×</div>
-            <div className="ai-pd">
-              Faster delivery cycles compared to traditional build-and-test approaches —
-              with higher coverage and fewer post-go-live defects.
-            </div>
-            <div className="ai-tags">
-              {["Claude AI","JSONata generation","Test automation","Auto-documentation","Diff analysis","Risk flagging"].map(t => (
-                <span key={t} className="ai-tag">{t}</span>
-              ))}
-            </div>
-            <div className="ai-pts">
-              {[
-                "JSONata expressions generated and validated — not hand-written",
-                "QA test suites auto-generated from flow specifications",
-                "Architecture reviews run against best practices before build starts",
-                "Every deployment diff-analysed for regressions and breaking changes",
-                "Full handoff documentation generated automatically on delivery",
-              ].map(t => <div key={t} className="ai-pt">{t}</div>)}
+            <div ref={r2} className="ai-panel">
+              <div className="ai-pl">AI impact</div>
+              <div className="ai-big">3×</div>
+              <div className="ai-pd">
+                Faster delivery cycles compared to traditional build-and-test approaches —
+                with higher coverage and fewer post-go-live defects.
+              </div>
+              <div className="ai-tags">
+                {["Claude AI","JSONata generation","Test automation","Auto-documentation","Diff analysis","Risk flagging"].map(t => (
+                  <span key={t} className="ai-tag">{t}</span>
+                ))}
+              </div>
+              <div className="ai-pts">
+                {[
+                  "JSONata expressions generated and validated — not hand-written",
+                  "QA test suites auto-generated from flow specifications",
+                  "Architecture reviews run against best practices before build starts",
+                  "Every deployment diff-analysed for regressions and breaking changes",
+                  "Full handoff documentation generated automatically on delivery",
+                ].map(t => <div key={t} className="ai-pt">{t}</div>)}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <Modal ai={active} onClose={() => setActive(null)} />
+    </>
   );
 }
 
